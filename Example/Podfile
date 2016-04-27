@@ -1,19 +1,27 @@
 source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
 use_frameworks!
+
 inhibit_all_warnings!
+
 post_install do |installer|
     `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
+    `find Pods -regex 'Pods/YYWebImage.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)YYWebImage\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
+    `find Pods -name "YYWebImage.h" -print0 | xargs -0  sed -i '' 's/#import \\<YYImage\\/YYImage.h\\>//'`
+    `find Pods -name "YYWebImage.h" -print0 | xargs -0  sed -i '' 's/#import \\<YYCache\\/YYCache.h\\>//'`
 end
 
 target 'SSImageBrowser_Example', :exclusive => true do
   pod "SSImageBrowser", :path => "../"
 end
 
-target 'SSImageBrowser_Tests', :exclusive => true do
-  pod "SSImageBrowser", :path => "../"
-
-  pod 'Quick', '~> 0.6.0'
-  pod 'Nimble', '~> 2.0.0-rc.3'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots', '~> 1.0.0'
-end
+#target 'SSImageBrowser_Tests', :exclusive => true do
+#  pod "SSImageBrowser", :path => "../"
+#
+#  pod 'Quick', '~> 0.6.0'
+#  pod 'Nimble', '~> 2.0.0-rc.3'
+#  pod 'FBSnapshotTestCase'
+#  pod 'Nimble-Snapshots', '~> 1.0.0'
+#end
