@@ -91,7 +91,7 @@ public class SSZoomingScrollView : UIScrollView {
                     progressView.setProgress(progress, animated: true)
                 }
             }
-        } else if aPhoto.asset.identifier == photo?.asset?.identifier {
+        } else if let aPhoto = aPhoto where aPhoto.asset.identifier == photo?.asset?.identifier {
             if progressView.progress < progress {
                 progressView.setProgress(progress, animated: true)
             }
