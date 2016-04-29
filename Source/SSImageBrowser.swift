@@ -348,12 +348,12 @@ extension SSImageBrowser {
 		}
 		initalPageIndex = index
 		currentPageIndex = index
-		if self.isViewLoaded() {
+		/*if self.isViewLoaded() {
 			jumpToPageAtIndex(index)
 			if !viewIsActive {
 				tilePages()
 			}
-		}
+		}*/
 	}
 
 	public func photoAtIndex(index: Int) -> SSPhoto {
