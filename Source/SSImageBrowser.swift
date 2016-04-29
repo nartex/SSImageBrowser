@@ -960,7 +960,7 @@ extension SSImageBrowser {
 	private func frameForDoneButtonAtOrientation(orientation: UIInterfaceOrientation) -> CGRect {
 		let screenBound = view.bounds
 		let screenWidth = screenBound.size.width
-		return CGRectMake(screenWidth - 75, 30, 55, 26)
+		return CGRectMake(screenWidth - 52, 16, 36, 36)
 	}
 
 	private func frameForCaptionView(captionView: SSCaptionView, atIndex index: Int) -> CGRect {
